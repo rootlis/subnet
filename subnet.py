@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 
 from os import rename, replace
-from os.path import join, dirname
+from os.path import abspath, dirname, join
 from subprocess import check_output
 
+script = abspath(join(dirname(__file__), 'list-hosts.sh'))
 mapfile = join(dirname(__file__), 'mapfile.txt')
 tempfile = join(dirname(__file__), 'temp')
-script = join(dirname(__file__), 'list-hosts.sh')
 
 def save_map(mac_map):
     with open(tempfile, 'w') as f:
